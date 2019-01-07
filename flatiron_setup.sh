@@ -48,7 +48,7 @@ echo "you now have ruby 2.5.3. Yay!"
 
 # we love gems.
 gem update --system
-gem install learn-co bundler json rspec pry pry-byebug nokogiri hub thin shotgun rack hotloader rails sinatra activeadmin sidekiq pundit --no-rdocs
+gem install learn-co bundler json rspec pry pry-byebug nokogiri hub thin shotgun rack hotloader rails sinatra activeadmin sidekiq pundit --no-document
 
 echo "you now have ruby with gems!!"
 
