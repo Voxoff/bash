@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-#we need sudo for all this? 
-
-
-#must be a way to do this w/o popups
+# must be a way to do this w/o popups Update: sadly, not simple
 xcode-select --install
 
 echo "you now have xcode :)"
-#homebrew
+
+# homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 
@@ -25,10 +23,9 @@ install_or_upgrade "gnupg"
 install_or_upgrade "sqlite3"
 echo "you now have homebrew level 2"
 
-# if  Warning: gnupg-1.4.19 run brew link gnupg
+# needs a checker for  Warning: gnupg-1.4.19 --->  brew link gnupg
 
-
-#lets have some rvm fun
+# lets have some rvm fun
 curl -sSL https://get.rvm.io | bash
 
 # work around so you dont have to close and reopen terminal
@@ -55,12 +52,13 @@ gem install learn-co bundler json rspec pry pry-byebug nokogiri hub thin shotgun
 
 echo "you now have ruby with gems!!"
 
-#learn setup 
+# learn setup 
 learn whoami
 
 echo "learn me some test"
-#atom via cask - acceptable?
-brew install caskroom/cask/brew-cask 2> /dev/null
+
+# atom via cask - acceptable?
+brew install caskroom/cask/brew-cask
 brew cask install atom
 
 echo "Atomified." 
@@ -70,10 +68,16 @@ echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bash_profile
 echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> ~/.bash_profile
 source ~/.bash_profile
 
+# node stuff
 nvm install node
 nvm use node
 nvm alias default node
 
+# Is cask legit?
+brew cask install google-chrome
+brew cask install slack
 
-
+echo "all done"
+# This script is far from perfect.
+curl -so- https://raw.githubusercontent.com/hysan/flatiron-manual-setup-validator/master/manual-setup-check.sh | bash 2> /dev/null
 
