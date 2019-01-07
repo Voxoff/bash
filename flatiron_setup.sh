@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-echo "you will need to check this script every few mins to check it doens't need any input from you"
+# get all the input at the start for those UX points
+read -p "Enter github email: " email
+read -p "Enter fullname: " fullname
 
 # must be a way to do this w/o popups Update: sadly, not simple
 xcode-select --install
@@ -57,10 +59,10 @@ echo "you now have ruby with gems!!"
 # learn setup 
 learn whoami
 
-echo "Live.love.learn."
+echo "Learn. Love. Code"
 # need to do github stuff
-
-
+git config --global user.email $email 
+git config --global user.name $fullname
 
 # atom via cask - acceptable?
 brew install caskroom/cask/brew-cask
@@ -90,9 +92,6 @@ alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.p
 alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 pg-start
 
-
-
-echo "all done"
-# This script is far from perfect.
+# This script is far from perfect. Check it.
 curl -so- https://raw.githubusercontent.com/hysan/flatiron-manual-setup-validator/master/manual-setup-check.sh | bash 2> /dev/null
-
+echo "This script does not run 'learn whoami'"
