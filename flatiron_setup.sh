@@ -24,7 +24,8 @@ install_or_upgrade "jq"
 install_or_upgrade "openssl"
 install_or_upgrade "gmp"
 install_or_upgrade "gnupg"
-install_or_upgrade "sqlite3"
+install_or_upgrade "sqlite"
+
 echo "you now have homebrew level 2"
 
 # needs a checker for  Warning: gnupg-1.4.19 --->  brew link gnupg
@@ -52,19 +53,20 @@ echo "you now have ruby 2.5.3. Yay!"
 
 # we love gems.
 gem update --system
-gem install learn-co bundler json rspec pry pry-byebug nokogiri hub thin shotgun rack hotloader rails sinatra activeadmin sidekiq pundit --no-document
+gem install learn-co bundler json rspec pry pry-byebug nokogiri hub thin shotgun rack hotloader rails sinatra --no-document
 
 echo "you now have ruby with gems!!"
 
-# learn setup 
-learn whoami
+# leaving this because it requires input 
+# learn whoami
 
 echo "Learn. Love. Code"
+
 # need to do github stuff
 git config --global user.email $email 
 git config --global user.name $fullname
 
-# atom via cask - acceptable?
+# Cask for slack, google and atom
 brew install caskroom/cask/brew-cask
 brew cask install atom
 
@@ -75,22 +77,21 @@ echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bash_profile
 echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> ~/.bash_profile
 source ~/.bash_profile
 
+brew cask install google-chrome
+brew cask install slack
+
+echo "Cask that task"
+
 # node stuff
 nvm install node
 nvm use node
 nvm alias default node
 
-# Cask is legit?
-brew cask install google-chrome
-brew cask install slack
-echo "Cask that task"
-
 # pg
 brew install postgresql
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-pg-start
+export alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+pg_start
 
 # This script is far from perfect. Check it.
 curl -so- https://raw.githubusercontent.com/hysan/flatiron-manual-setup-validator/master/manual-setup-check.sh | bash 2> /dev/null
