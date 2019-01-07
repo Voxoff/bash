@@ -73,9 +73,10 @@ nvm install node
 nvm use node
 nvm alias default node
 
-# Is cask legit?
+# Cask is legit?
 brew cask install google-chrome
 brew cask install slack
+brew cask install postgres
 
 echo "all done"
 # This script is far from perfect.
