@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "you will need to check this script every few mins to check it doens't need any input from you"
+
 # must be a way to do this w/o popups Update: sadly, not simple
 xcode-select --install
 
@@ -55,7 +57,10 @@ echo "you now have ruby with gems!!"
 # learn setup 
 learn whoami
 
-echo "learn me some test"
+echo "Live.love.learn."
+# need to do github stuff
+
+
 
 # atom via cask - acceptable?
 brew install caskroom/cask/brew-cask
@@ -76,7 +81,16 @@ nvm alias default node
 # Cask is legit?
 brew cask install google-chrome
 brew cask install slack
-brew cask install postgres
+echo "Cask that task"
+
+# pg
+brew install postgresql
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+pg-start
+
+
 
 echo "all done"
 # This script is far from perfect.
